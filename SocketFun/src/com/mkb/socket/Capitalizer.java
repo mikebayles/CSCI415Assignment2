@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Capitalizer extends Thread
 {
@@ -47,7 +48,8 @@ public class Capitalizer extends Thread
                 {
                     break;
                 }
-                out.println(input.toUpperCase());
+                log(input);
+                out.println((new Scanner(System.in).nextLine()));
             }
         } 
         catch (IOException e) 
