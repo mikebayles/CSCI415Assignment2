@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.Socket;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.naming.ldap.Rdn;
 
@@ -32,15 +34,35 @@ public class HTTPProxy extends Thread
 	        while(true)
 	        {	        	
 	        	String input = in.readLine();
-	        	System.out.println(input);
-	        	if(input.toLowerCase().startsWith("get"))
-	        		out.println(get(input.toLowerCase().split("get")[1]));
+	        	if(input != null && input.toLowerCase().contains("get"))
+	        	{
+
+		        	String url = parseRequest(input);
+		        	logRequest(input, url);
+		        	out.print(get(url));
+		        	socket.close();
+	        	}	        	
 	        }
 		}
 		catch(IOException e)
 		{
 			e.printStackTrace();
 		}
+	}
+	
+	public String parseRequest(String input)
+	{
+		String firstLine = input.split("\\r?\\n")[0];
+		if(firstLine.toLowerCase().contains("get"))
+			return firstLine.toLowerCase().split(" ")[1];
+		
+		return "";
+	}
+	
+	public void logRequest(String input, String url)
+	{
+		String dateTime = new SimpleDateFormat("MM dd yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
+		System.out.println(String.format("%s\t%s\t%s\t%s",dateTime, socket.getInetAddress(), url, input.length()));
 	}
 	
 	public String get(String urlIn)
@@ -62,10 +84,11 @@ public class HTTPProxy extends Thread
 				result += line;
 			}
 			
-			reader.close();
+			reader.close();		
 		}
 		catch(IOException e)
 		{
+			System.out.println(urlIn + " is bad");
 			e.printStackTrace();
 		}
 		
