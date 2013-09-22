@@ -1,0 +1,289 @@
+
+<!-- saved from url=(0080)http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Overview -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Web Proxy</title>
+<style type="text/css"></style></head>
+<body>
+<div id="header"><a name="Building_a_HTTP_Proxy"></a><h1>Building a HTTP Proxy</h1>
+<p></p>
+<hr>
+<ul>
+<li><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy/proxy_faq.html" title="Proxy FAQ">Frequently Asked Questions</a></li>
+<li> Download the <a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy/proxy_tester.py" class="external text" title="./web_proxy/proxy_tester.py" rel="nofollow">testing script</a></li>
+<li> Download the <a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy/Makefile" class="external text" title="./web_proxy/Makefile" rel="nofollow">sample Makefile</a></li>
+</ul>
+<b>Note: You should use 'Save Target As' in the browser or 'wget' to download the files above.</b><br>Copy and paste may not work, since both Makefile and Python script differentiate tabs from spaces.
+<hr>
+<table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Building_a_HTTP_Proxy"><span class="tocnumber">1</span> <span class="toctext">Building a HTTP Proxy</span></a>
+<ul>
+<li class="toclevel-2"><a href="./Web Proxy_files/Web Proxy.htm"><span class="tocnumber">1.1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-2"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Introduction:_The_Hypertext_Transfer_Protocol"><span class="tocnumber">1.2</span> <span class="toctext">Introduction: The Hypertext Transfer Protocol</span></a>
+<ul>
+<li class="toclevel-3"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#HTTP_Proxies"><span class="tocnumber">1.2.1</span> <span class="toctext">HTTP Proxies</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Assignment_Details"><span class="tocnumber">1.3</span> <span class="toctext">Assignment Details</span></a>
+<ul>
+<li class="toclevel-3"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#The_Basics"><span class="tocnumber">1.3.1</span> <span class="toctext">The Basics</span></a></li>
+<li class="toclevel-3"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Listening"><span class="tocnumber">1.3.2</span> <span class="toctext">Listening</span></a></li>
+<li class="toclevel-3"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Parsing_the_URL"><span class="tocnumber">1.3.3</span> <span class="toctext">Parsing the URL</span></a></li>
+<li class="toclevel-3"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Getting_Data_from_the_Remote_Server"><span class="tocnumber">1.3.4</span> <span class="toctext">Getting Data from the Remote Server</span></a></li>
+<li class="toclevel-3"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Returning_Data_to_the_Client"><span class="tocnumber">1.3.5</span> <span class="toctext">Returning Data to the Client</span></a></li>
+<li class="toclevel-3"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Testing_Your_Proxy"><span class="tocnumber">1.3.6</span> <span class="toctext">Testing Your Proxy</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Configuring_a_Web_Browser_to_Use_a_Proxy"><span class="tocnumber">1.4</span> <span class="toctext">Configuring a Web Browser to Use a Proxy</span></a>
+<ul>
+<li class="toclevel-3"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#A_Caveat"><span class="tocnumber">1.4.1</span> <span class="toctext">A Caveat</span></a></li>
+<li class="toclevel-3"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Firefox"><span class="tocnumber">1.4.2</span> <span class="toctext">Firefox</span></a>
+<ul>
+<li class="toclevel-4"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Configuring_Firefox_to_use_HTTP.2F1.0"><span class="tocnumber">1.4.2.1</span> <span class="toctext">Configuring Firefox to use HTTP/1.0</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Internet_Explorer"><span class="tocnumber">1.4.3</span> <span class="toctext">Internet Explorer</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Socket_Programming"><span class="tocnumber">1.5</span> <span class="toctext">Socket Programming</span></a></li>
+<li class="toclevel-2"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Grading"><span class="tocnumber">1.6</span> <span class="toctext">Grading</span></a>
+<ul>
+<li class="toclevel-3"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#A_Note_on_Network_Programming"><span class="tocnumber">1.6.1</span> <span class="toctext">A Note on Network Programming</span></a></li>
+<li class="toclevel-3"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Possible_Extensions"><span class="tocnumber">1.6.2</span> <span class="toctext">Possible Extensions</span></a>
+<ul>
+<li class="toclevel-4"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Content_Transformation"><span class="tocnumber">1.6.2.1</span> <span class="toctext">Content Transformation</span></a></li>
+<li class="toclevel-4"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Caching"><span class="tocnumber">1.6.2.2</span> <span class="toctext">Caching</span></a></li>
+<li class="toclevel-4"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Link_Prefetch"><span class="tocnumber">1.6.2.3</span> <span class="toctext">Link Prefetch</span></a></li>
+<li class="toclevel-4"><a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy.html#Other_Possible_Extensions"><span class="tocnumber">1.6.2.4</span> <span class="toctext">Other Possible Extensions</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Overview"></a><h2>Overview</h2>
+<p>In this assignment, you will implement a simple web proxy that passes requests and data between a web client and a web server.  This will give you a chance to get to know one of the most popular application protocols on the Internet- the Hypertext Transfer Protocol (HTTP)v. 1.0- and give you an introduction to the Berkeley sockets API.  When you're done with the assignment, you should be able to configure your web browser to use your personal proxy server as a web proxy.
+</p>
+<a name="Introduction:_The_Hypertext_Transfer_Protocol"></a><h2>Introduction: The Hypertext Transfer Protocol</h2>
+<p>The Hypertext Transfer Protocol or (HTTP) is the protocol used for communication on this web.  That is, it is the protocol which defines how your web browser requests resources from a web server and how the server responds.  For simplicity, in this assignment we will be dealing only with version 1.0 of the HTTP protocol, defined in detail in <a href="http://www.ietf.org/rfc/rfc1945.txt" class="external" title="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945</a>.  You should read through this RFC and refer back to it when deciding on the behavior of your proxy.
+</p><p>HTTP communications happen in the form of transactions, a transaction consists of a client sending a request to a server and then reading the response.
+Request and response messages share a common basic format:
+</p>
+<ul><li> An initial line (a request or response line, as defined below)
+</li><li> Zero or more header lines
+</li><li> A blank line (CRLF)
+</li><li> An optional message body.
+</li></ul>
+<p><br>
+For most common HTTP transactions, the protocol boils down to a relatively simple series of steps (important sections of <a href="http://www.ietf.org/rfc/rfc1945.txt" class="external" title="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945</a> are in parenthesis):
+</p>
+<ol><li> A client creates a connection to the server.
+</li><li> The client issues a request by sending a line of text to the server.  This <b>request line</b> consists of a HTTP <i>method</i> (most often GET, but POST, PUT, and others are possible), a <i>request URI</i> (like a URL), and the protocol version that the client wants to use (HTTP/1.0). The message body of the initial request is typically empty. (5.1-5.2, 8.1-8.3, 10, D.1) 
+</li><li> The server sends a response message, with its initial line consisting of a <b>status line</b>, indicating if the request was successful.   The status line consists of the HTTP version (HTTP/1.0), a <i>response status code</i> (a numerical value that indicates whether or not the request was completed successfully), and a <i>reason phrase</i>, an English-language message providing description of the status code. Just as with the the request message, there can be as many or as few header fields in the response as the server wants to return.  Following the CRLF field separator, the message body contains the data requested by the client in the event of a successful request. (6.1-6.2, 9.1-9.5, 10)
+</li><li> Once the server has returned the response to the client, it closes the connection.
+</li></ol>
+<p>It's fairly easy to see this process in action without using a web browser.  From a Unix prompt, type:
+</p><p><code class="highlight">telnet www.yahoo.com 80</code>
+</p><p>This opens a TCP connection to the server at www.yahoo.com listening on port 80- the default HTTP port.  You should see something like this:
+</p>
+<pre>Trying 209.131.36.158...
+Connected to www.yahoo.com (209.131.36.158).
+Escape character is '^]'.</pre>
+<p>type the following:
+</p><p><code class="highlight">GET / HTTP/1.0</code>
+</p><p>and hit enter twice.  You should see something like the following:
+</p>
+<pre>HTTP/1.1 200 OK
+Date: Fri, 10 Nov 2006 20:31:19 GMT
+Connection: close
+Content-Type: text/html; charset=utf-8
+
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;Yahoo!&lt;/title&gt;
+(More HTML follows)
+</pre>
+<p>There may be some additional pieces of header information as well- setting cookies, instructions to the browser or proxy on caching behavior, etc.  What you are seeing is exactly what your web browser sees when it goes to the Yahoo home page: the HTTP status line, the header fields, and finally the HTTP message body- consisting of the HTML that your browser interprets to create a web page.
+</p><p><br>
+</p>
+<a name="HTTP_Proxies"></a><h3> HTTP Proxies</h3>
+<p>Ordinarily, HTTP is a client-server protocol.  The client (usually your web browser) communicates directly with the server (the web server software).  However, in some circumstances it may be useful to introduce an intermediate entity called a proxy.  Conceptually, the proxy sits between the client and the server.  In the simplest case, instead of sending requests directly to the server the client sends all its requests to the proxy.  The proxy then opens a connection to the server, and passes on the client's request.  The proxy receives the reply from the server, and then sends that reply back to the client.  Notice that the proxy is essentially acting like both a HTTP client (to the remote server) and a HTTP server (to the initial client).
+</p><p>Why use a proxy?  There are a few possible reasons:
+</p>
+<ul><li> <b>Performance:</b>  By saving a copy of the pages that it fetches, a proxy can reduce the need to create connections to remote servers.  This can reduce the overall delay involved in retrieving a page, particularly if a server is remote or under heavy load.
+</li><li> <b>Content Filtering and Transformation:</b> While in the simplest case the proxy merely fetches a resource without inspecting it, there is nothing that says that a proxy is limited to blindly fetching and serving files.  The proxy can inspect the requested URL and selectively block access to certain domains, reformat web pages (for instances, by stripping out images to make a page easier to display on a handheld or other limited-resource client), or perform other transformations and filtering.
+</li><li> <b>Privacy:</b>  Normally, web servers log all incoming requests for resources.  This information typically includes at least the  IP address of the client, the browser or other client program that they are using (called the User-Agent), the date and time, and the requested file.  If a client does not wish to have this personally identifiable information recorded, routing HTTP requests through a proxy is one solution.  All requests coming from clients using the same proxy appear to come from the IP address and User-Agent of the proxy itself, rather than the individual clients.  If a number of clients use the same proxy (say, an entire business or university), it becomes much harder to link a particular HTTP transaction to a single computer or individual.
+</li></ul>
+<p><b>Links:</b>
+</p>
+<ul><li> <a href="http://www.w3.org/Protocols/rfc1945/rfc1945" class="external text" title="http://www.w3.org/Protocols/rfc1945/rfc1945" rel="nofollow">RFC 1945</a> The Hypertext Transfer Protocol, version 1.0
+</li></ul>
+<a name="Assignment_Details"></a><h2>Assignment Details</h2>
+<a name="The_Basics"></a><h3> The Basics </h3>
+<p>Your first task is to build a basic web proxy capable of accepting HTTP requests, making requests from remote servers, and returning data to a client.
+</p><p>This assignment can be completed in either ANSI C or C++.  It should compile and run without errors from the FC 010 cluster, producing a binary called <code>proxy</code> that takes as its first argument a port to listen from.  Don't use a hard-coded port number.  
+</p><p>You shouldn't assume that your server will be running on a particular IP address, or that clients will be coming from a pre-determined IP.
+</p>
+<a name="Listening"></a><h3> Listening </h3>
+<p>When your proxy starts, the first thing that it will need to do is establish a socket connection that it can use to listen for incoming connections.  Your proxy should listen on the port specified from the command line, and wait for incoming client connections.
+</p><p>Once a client has connected, the proxy should read data from the client and then check for a properly-formatted HTTP request.  An invalid request from the client should be answered with an appropriate error code.
+</p>
+<a name="Parsing_the_URL"></a><h3> Parsing the URL </h3>
+<p>Once the proxy sees a valid HTTP request, it will need to parse the requested URL.  The proxy needs at most three pieces of information: the requested host and port, and the requested path.  See the <code>URL (7)</code> manual page for more info.  
+</p>
+<a name="Getting_Data_from_the_Remote_Server"></a><h3> Getting Data from the Remote Server </h3>
+<p>Once the proxy has parsed the URL, it can make a connection to the requested host (using the appropriate remote port, or the default of 80 if none is specified) and send a HTTP request for the appropriate file.  The proxy then sends the HTTP request that it received from the client to the remote server.
+</p>
+<a name="Returning_Data_to_the_Client"></a><h3> Returning Data to the Client </h3>
+<p>After the response from the remote server is received, the proxy should send the response message to the client via the appropriate socket.  Once the transaction is complete, the proxy should close the connection.
+</p>
+<a name="Testing_Your_Proxy"></a><h3> Testing Your Proxy </h3>
+<p>Run your client with the following command:
+</p><p><code>./proxy &lt;port&gt;</code>, where <code>port</code> is the port number that the proxy should listen on.  As a basic test of functionality, try requesting a page using telnet:
+</p>
+<pre>telnet localhost &lt;port&gt;
+Trying 127.0.0.1...
+Connected to localhost.localdomain (127.0.0.1).
+Escape character is '^]'.
+GET http://www.google.com HTTP/1.0
+
+</pre>
+<p>If your proxy is working correctly, the headers and HTML of the Google homepage should be displayed on your terminal screen.
+</p><p>For a slightly more complex test, you can configure your web browser to use your proxy server as its web proxy.  See the section beflow for details.
+</p>
+<a name="Configuring_a_Web_Browser_to_Use_a_Proxy"></a><h2> Configuring a Web Browser to Use a Proxy </h2>
+<a name="A_Caveat"></a><h3> A Caveat </h3>
+<p><b>If you write a single-threaded proxy server, you will probably see some problems when you use your proxy with a standard web browser.</b>  Because a web browser like Firefox or IE issues multiple HTTP requests for each URL you request (for instance, to download images and other embedded content), a single-threaded proxy will likely miss some requests, resulting in missing images or other minor errors.  <b>That's OK</b>.  You are not required to use threading in this assignment.   As long as your proxy works correctly for a simple HTML document (like, for instance, this assignment page) and follows the RFC, you can still receive all the points for this assignment.
+</p>
+<a name="Firefox"></a><h3> Firefox </h3>
+<p><b>Version 2.0:</b>
+</p>
+<ol><li> Select Tools-&gt;Options from the menu.
+</li><li> Click on the 'Advanced' icon in the Options dialog.
+</li><li> Select the 'Network' tab, and click on 'Settings' in the 'Connections' area.
+</li><li> Select 'Manual Proxy Configuration' from the options available.  In the boxes, enter
+</li></ol>
+<p>the hostname and port where proxy program is running.  
+</p><p><b>Earlier Versions:</b>
+</p>
+<ol><li> Select Edit-&gt;Preferences from the menu.
+</li><li> On the 'General' tab, click 'Connection Settings'.
+</li><li> Select 'Manual Proxy Configuration' and enter the hostname and port where your proxy is running.
+</li></ol>
+<p>To stop using the proxy server, select 'Direct connection to the Internet' in the connection settings dialog.
+</p><p><br>
+</p>
+<a name="Configuring_Firefox_to_use_HTTP.2F1.0"></a><h4> Configuring Firefox to use HTTP/1.0 </h4>
+<p>Because Firefox defaults to using HTTP/1.1 and your proxy speaks HTTP/1.0, there are a couple of minor changes that need to be made to Firefox's configuration.  Fortunately, Firefox is smart enough to know when it is connecting through a proxy, and has a few special configuration keys that can be used to tweak the browser's behavior.
+</p>
+<ol><li> Type 'about:config' in the title bar.
+</li><li> In the search/filter bar, type 'network.http.proxy'
+</li><li> You should see three keys: <code>network.http.proxy.keepalive</code>, <code>network.http.proxy.pipelining</code>, and <code>network.http.proxy.version</code>.
+</li><li> Set <code>keepalive</code> to false.  Set <code>version</code> to 1.0.  Make sure that <code>pipelining</code> is set to false.
+</li></ol>
+<a name="Internet_Explorer"></a><h3> Internet Explorer </h3>
+<p>Take a look at <a href="http://support.microsoft.com/kb/135982" class="external text" title="http://support.microsoft.com/kb/135982" rel="nofollow">this page</a> for complete instructions on enabling a proxy for various versions if Internet Explorer.
+</p><p>You should also do the following to make Internet Explorer work in a HTTP 1.0 compatible mode with your proxy:
+</p>
+<ol><li> Under Internet Options, select the 'Advanced' tab.
+</li><li> Scroll down to HTTP 1.1 Settings.  Uncheck 'Use HTTP 1.1 through proxy connections'.
+</li></ol>
+<a name="Socket_Programming"></a><h2> Socket Programming </h2>
+<p>In order to build your proxy you will need to learn and become comfortable programming sockets.  The Berkeley sockets library is the standard method of creating network systems on Unix.    There are a number of functions that you will need to use for this assignment:
+</p>
+<ul><li> Parsing addresses:
+<ul><li><dl><dt>inet_addr</dt><dd>Convert a dotted quad IP address (such as 36.56.0.150) into a 32-bit address.
+</dd><dt>gethostbyname</dt><dd>Convert a hostname (such as argus.stanford.edu) into a 32-bit address.
+</dd><dt>getservbyname</dt><dd>Find the port number associated with a particular service, such as FTP.
+</dd></dl>
+</li></ul>
+</li></ul>
+<ul><li> Setting up a connection:
+<ul><li><dl><dt>socket</dt><dd>Get a descriptor to a socket of the given type
+</dd><dt>connect</dt><dd>Connect to a peer on a given socket
+</dd><dt>getsockname</dt><dd>Get the local address of a socket
+</dd></dl>
+</li></ul>
+</li></ul>
+<ul><li> Creating a server socket:
+<ul><li><dl><dt>bind</dt><dd>Assign an address to a socket
+</dd><dt>listen</dt><dd>Tell a socket to listen for incoming connections
+</dd><dt>accept</dt><dd>Accept an incoming connection
+</dd></dl>
+</li></ul>
+</li></ul>
+<ul><li> Communicating over the connection:
+<ul><li><dl><dt>read/write</dt><dd>Read and write data to a socket descriptor
+</dd><dt>htons, htonl / ntohs , ntohl</dt><dd>Convert between host and network byte orders (and vice versa) for 16 and 32-bit values
+</dd></dl>
+</li></ul>
+</li></ul>
+<p>You can find the details of these functions in the Unix <code>man</code> pages (most of them are in section 2) and in the Stevens <em>Unix Network Programming</em> book, particularly chapters 3 and 4.  Other sections you may want to browse include the client-server example system in chapter 5 (you will need to write both client and server code for this assignment) and the name and address conversion functions in chapter 9.
+</p><p><br>
+<b>Links:</b>
+</p>
+<ul><li> <a href="http://beej.us/guide/bgnet/" class="external text" title="http://beej.us/guide/bgnet/" rel="nofollow">Guide to Network Programming Using Sockets</a>
+</li><li> <a href="http://www.uwo.ca/its/doc/courses/notes/socket/" class="external text" title="http://www.uwo.ca/its/doc/courses/notes/socket/" rel="nofollow">An Introduction to Sockets Programming</a>
+</li><li> <a href="http://www.jmarshall.com/easy/http/" class="external text" title="http://www.jmarshall.com/easy/http/" rel="nofollow">HTTP Made Really Easy- A Practical Guide to Writing Clients and Servers</a>
+</li></ul>
+<a name="Grading"></a><h2> Grading </h2>
+<p>You should submit your completed proxy by the date posted on the course website to <a href="https://moodle.cs.princeton.edu/course/view.php?id=32">moodle</a>.  You will need to submit a tarball file containing the following:
+</p>
+<ul><li> All of the source code for your proxy
+</li><li> A Makefile that builds your proxy
+</li><li> A README file describing your code and the design decisions that you made.
+</li></ul>
+<p>If you don't know how to create a tarball (tar archive), take a look at the sample Makefile at the top of the page, or <code>man tar</code>
+</p><p>Your proxy will be graded out of ten points, with the following criteria:
+</p>
+<ol><li> Your assignment should create a binary name <code>proxy</code> that will compile and run on the FC 010 cluster.  The first command line argument should be the port that the proxy will listen from.
+</li><li> Your proxy should run silently- any status messages or diagnostic output should be off by default.
+</li><li> You can complete the assignment in either ANSI C or C++.
+</li><li> Your proxy should work with both Firefox 2.0 and Internet Explorer 6.
+</li><li> We'll first check that your proxy works correctly with a small number of major web pages, using the <a href="http://www.cs.princeton.edu/courses/archive/spring08/cos461/web_proxy/proxy_tester.py" class="external text" title="http://www.cs.princeton.edu/courses/archive/spring08/cos461/web_proxy/proxy_tester.py" rel="nofollow">same script</a> that we've given you to test your proxy.  If your proxy passes all of these 'public' tests, you will get 7 of the possible points.
+</li><li> We'll then check a number of additional URLs and transactions that you will not know in advance.  If your proxy passes <b>all</b> of these tests, you get two additional points.  These tests will check the overall robustness of your proxy, and how you handle certain edge cases.  This may include sending your proxy incorrectly formed HTTP requests, large transfers, less common HTTP methods, etc.
+</li><li> Well written (good abstraction, error checking, readability) and well commented code will get one additional point, for a total of 10.
+</li><li> The first student to submit a proxy that scores a perfect 10 will win a prize!
+</li></ol>
+<p>There will also be some sort of prize for the best extension to the proxy.  Adding an extension will not change your grade.  Take a look below for some hints about possible extensions that you can add to the proxy.
+</p><p>As mentioned above you are <b>not</b> required to implement a multi-threaded proxy for this assignment.  If you write a single-threaded client, you may see errors when using your proxy with a standard web browser, but that's OK.  As long as your proxy works correctly for single HTTP transactions (for instance, try telnetting to to the port the proxy is running from and requesting a single HTML document) you can still receive all the possible points for this assignment.
+</p>
+<a name="A_Note_on_Network_Programming"></a><h3> A Note on Network Programming </h3>
+<p>Writing code that will interact with other programs on the Internet is a little different than just writing something for your own use.  The general guideline often given for network programs is: <b>be lenient about what you accept, but strict about what you send</b>.  That is, even if a client doesn't do exactly the right thing, you should make a best effort to process their request if it is possible to easily figure out their intent.  On the other hand, you should ensure that anything that you send out conforms to the published protocols as closely as possible.  If an incoming request has a single field out of whack (such as sending you a request using HTTP 0.9 or 1.1), uses non-standard line terminators (some clients only send \r instead of the standard \r\n), or does something you don't quite expect with HTTP headers, you should still handle the request rather than dropping the request.  Pay attention to parts of the RFC that specify areas where not all clients may conform exactly to what you expect.  We'll be looking for this kind of interoperability in both the second round of tests that we run and in the style portion of your grade.
+</p><p>When in doubt, try to follow the behavior specified in <a href="http://www.ietf.org/rfc/rfc1945.txt" class="external" title="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945</a>.  Also, check the <a href="http://www.cs.princeton.edu/courses/archive/spr08/cos461/web_proxy/proxy_faq.html" title="Proxy FAQ">FAQ</a> for more specific guidelines.
+</p>
+<a name="Possible_Extensions"></a><h3> Possible Extensions </h3>
+<p>While it may not be obvious at first, proxies are very flexible tools that can serve a number of different purposes on the web.  Common uses for proxies include improving giving performance boosts to dial-up users (through caching and pre-fetching), privacy protection (through anonymous proxies), content filtering and blocking (used in many "NetNanny"-type applications), and content transformation.
+</p><p><b>Sample Proxy Applications:</b>
+</p>
+<ul><li> <a href="http://www.anonymizer.com/" class="external text" title="http://www.anonymizer.com/" rel="nofollow">Anonymizer</a> - A privacy protection/anonymous browsing service.
+</li><li> <a href="http://www.2-power-n.com/" class="external text" title="http://www.2-power-n.com/" rel="nofollow">Foxy</a> - A filtering web proxy.
+</li><li> <a href="http://webaccelerator.google.com/" class="external text" title="http://webaccelerator.google.com/" rel="nofollow">Google Web Accelerator</a> - The latest of a number of 'accelerators'.
+</li></ul>
+<p>You can impliment any of the following extensions (or some other extension that you've created yourself) as part of the contest we'll be running along with this assignment.
+</p><p><br>
+</p>
+<a name="Content_Transformation"></a><h4> Content Transformation </h4>
+<p>Content transformation is the process of a proxy inserting, removing, or changing the contents of a resource requested from a remote server.  After the resource has been retrieved from the server, the proxy is free to do whatever it would like to the content.  Since the data returned from a web server is usually just text, this means that we can change the page almost any way we want- add or remove dirty words, change the text to Pig-Latin, rotate the images on the page 90 degrees, etc.
+</p>
+<a name="Caching"></a><h4> Caching </h4>
+<p>Caching is one of the most common performance enhancements that web proxies implement.  Caching takes advantage of the fact that most pages on the web don't change that often, and that any page that you visit once you (or someone else using the same proxy) are likely to visit again.  A caching proxy server saves a copy of the files that it retrieves from remote servers.  When another request comes in for the same resource, it returns the saved (or <i>cached</i>) copy instead of creating a new connection to a remote server.  This saves a modest amount of time and CPU if the remote server is nearby and lightly trafficked, but can create more significant savings in the case of a more distant server or a remote server that is overloaded (it can also help reduce the load on heavily trafficked servers).
+</p><p>Caching introduces a few new complexities as well.  First of all, a great deal of web content is dynamically generated, and as such shouldn't really be cached.  Second, we need to decide how long to keep pages around in our cache.  If the timeout is set too short, we negate most of the advantages of having a caching proxy.  If the timeout is set too long, the client may end up looking at pages that are outdated or irrelevant.
+</p><p>There are a few steps to implementing caching behavior for your web proxy:
+</p>
+<ol><li> First, alter your proxy so that you can specify a timeout value (probably in seconds) on the command line.
+</li><li> Second, you'll need to alter how your proxy retrieves pages.  It should now check to see if a page exists in the proxy before retrieving a page from a remote server.  If there is a valid cached copy of the page, that should be presented to the client instead of creating a new server connection.
+</li><li> Finally, you will need to somehow implement cache expiration.  The timing does not need to be exact (i.e. it's okay if a page is still <b>in</b> your cache after the timeout has expired, but it's not okay to <b>serve</b> a cached page after its timeout has expired), but you want to ensure that pages that are older than the user-set timeout are not served from the cache.
+</li></ol>
+<a name="Link_Prefetch"></a><h4> Link Prefetch </h4>
+<p>Building on top of your caching and content transformation code, the last piece of functionality that you will implement is called link prefetching.  The idea behind link prefetching is simple: if a user asks for a particular page, the odds are that he or she will next request a page linked from that page.  Link prefetching uses this information to attempt to speed up browsing by parsing requested pages for links, and then fetching the linked pages in the background.  The pages fetched from the links are stored in the cache, ready to be served to the client when they are requested without the client having to wait around for the remote server to be contacted.
+</p><p>Parsing and fetching links can take an appreciable amount of time, especially for a page with a lot of links.  For this reason, if you haven't already, at this stage you should make your proxy into a multi-threaded application.  One thread should remain dedicated to the tasks that you have already implemented: reading requests from the client and serving pages from either the cache or a remote server.  In a separate thread, the proxy will parse a page and extract the HTTP links, request those links from the remote server, and add them to the cache.
+</p>
+<a name="Other_Possible_Extensions"></a><h4> Other Possible Extensions </h4>
+<ul><li> HTTP 1.1 Support
+</li><li> HTTP Connection Keep-Alive
+</li></ul>
+
+
+</div></body></html>
