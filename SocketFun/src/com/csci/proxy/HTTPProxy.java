@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
+import java.net.InetAddress;
+import java.net.MalformedURLException;
 import java.net.Socket;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -14,34 +16,47 @@ import javax.naming.ldap.Rdn;
 
 public class HTTPProxy extends Thread
 {
-	private Socket socket;
-    private int clientNumber;
+	private Socket socket; 
     
-	public HTTPProxy(Socket socket, int clientNumber) 
+	public HTTPProxy(Socket socket) 
 	{
 		this.socket = socket;
-		this.clientNumber = clientNumber;
+		
 	}
 	
 	@Override
-	public void run() 
+	public void run()
 	{
 		try
-		{
+		{			
 	        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 	        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 	        
-	        while(true)
-	        {	        	
-	        	String input = in.readLine();
-	        	if(input != null && input.toLowerCase().contains("get"))
-	        	{
-
-		        	String url = parseRequest(input);
-		        	logRequest(input, url);
-		        	out.print(get(url));
-		        	socket.close();
-	        	}	        	
+	        String input;
+	        
+	        input = in.readLine();
+	        
+	        if(input == null || !input.contains("GET"))
+	        	socket.close();
+	        else
+	        {
+	        	String host = getHost(input);
+	        	Socket server = new Socket(InetAddress.getByName(host),80);
+	        	PrintWriter pw = new PrintWriter(server.getOutputStream());
+	        	
+	        	pw.println("GET " + getFile(input) + " HTTP/1.0");
+	        	pw.println(String.format("Host: %s", host));
+	        	pw.println("");
+	        	pw.flush();
+	        		        
+	        	
+	        	BufferedReader br = new BufferedReader(new InputStreamReader(server.getInputStream()));	        	
+	        	String t;
+	        	while((t = br.readLine()) != null) out.println(t);
+	        	
+	        	br.close();
+	        	server.close();
+	        	socket.close();
 	        }
 		}
 		catch(IOException e)
@@ -50,13 +65,73 @@ public class HTTPProxy extends Thread
 		}
 	}
 	
-	public String parseRequest(String input)
+	
+	public void rune() 
 	{
-		String firstLine = input.split("\\r?\\n")[0];
-		if(firstLine.toLowerCase().contains("get"))
-			return firstLine.toLowerCase().split(" ")[1];
+		try
+		{
+	        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+	        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+	        String input;
+	        do
+	        {	        	
+	        	input = in.readLine();
+	        	
+	        	if(input != null && input.toLowerCase().contains("get"))
+	        	{
+
+		        	String url = getHost(input);
+		        	logRequest(input, url);
+		        	out.print(get(url));
+		        	
+	        	}	        	
+	        }
+	        while(input != null);
+	        
+	        socket.close();
+	        
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public String getHost(String input)
+	{			
+		//System.out.println(input);
 		
-		return "";
+		//System.out.println(input.split(" ")[1]);
+		//System.out.println(input.split(" ")[1].split("http://")[1]);
+		String ret = "";
+		
+		try
+		{
+			ret = input.split(" ")[1].split("http://")[1].split("/")[0];
+		}
+		catch(ArrayIndexOutOfBoundsException e)
+		{
+			System.out.println("Could not get host of " + input);
+		}
+		return ret;
+				
+	}
+	
+	public String getFile(String input)
+	{
+		URL url = null;
+		try 
+		{		
+			url = new URL(input.split(" ")[1]);
+			System.out.println(url.getFile());
+		} 
+		catch (MalformedURLException e) 
+		{			
+			e.printStackTrace();
+		}
+		
+		
+		return url.getFile();
 	}
 	
 	public void logRequest(String input, String url)
@@ -87,8 +162,7 @@ public class HTTPProxy extends Thread
 			reader.close();		
 		}
 		catch(IOException e)
-		{
-			System.out.println(urlIn + " is bad");
+		{			
 			e.printStackTrace();
 		}
 		
