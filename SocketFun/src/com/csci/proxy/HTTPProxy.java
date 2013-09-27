@@ -12,8 +12,6 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import javax.naming.ldap.Rdn;
-
 public class HTTPProxy extends Thread
 {
 	private Socket socket; 
@@ -40,6 +38,10 @@ public class HTTPProxy extends Thread
 	        	socket.close();
 	        else
 	        {
+	        	
+	        	System.out.println(input);
+	        	
+	        	
 	        	String host = getHost(input);
 	        	Socket server = new Socket(InetAddress.getByName(host),80);
 	        	PrintWriter pw = new PrintWriter(server.getOutputStream());
@@ -52,7 +54,7 @@ public class HTTPProxy extends Thread
 	        	
 	        	BufferedReader br = new BufferedReader(new InputStreamReader(server.getInputStream()));	        	
 	        	String t;
-	        	while((t = br.readLine()) != null) out.println(t);
+	        	while((t = br.readLine()) != null) {out.println(t); System.out.println(t);}
 	        	
 	        	br.close();
 	        	server.close();
@@ -123,7 +125,7 @@ public class HTTPProxy extends Thread
 		try 
 		{		
 			url = new URL(input.split(" ")[1]);
-			System.out.println(url.getFile());
+			//System.out.println(url.getFile());
 		} 
 		catch (MalformedURLException e) 
 		{			
