@@ -1,0 +1,21 @@
+HTTP/1.1 200 OK
+Server: cloudflare-nginx
+Date: Mon, 07 Oct 2013 00:09:21 GMT
+Content-Type: application/javascript
+Connection: close
+Set-Cookie: __cfduid=dd4994369cf334e54775150034efc14eb1381104560277; expires=Mon, 23-Dec-2019 23:50:00 GMT; path=/; domain=.sstatic.net
+Cache-Control: public, max-age=604800
+Last-Modified: Mon, 30 Sep 2013 13:55:38 GMT
+ETag: "0a91bbee4bdce1:0"
+Vary: Accept-Encoding
+CF-Cache-Status: HIT
+Expires: Mon, 14 Oct 2013 00:09:20 GMT
+CF-RAY: b965cadb1880166
+
+'use strict';StackExchange.imageUploader=function(){var k={};return{uploadImageDialog:function(q,g){var i="upload-iframe-"+(new Date).getTime();"undefined"===typeof g&&(g="/upload/image");var h=window.FileReader&&window.FormData,l=h&&"ondrop"in window,m=h&&"onpaste"in document.body&&window.Clipboard,h="/render/image-upload?uploadUrl={0}&canDragDrop={1}&canPaste={2}".formatUnicorn(encodeURIComponent(g),l?"true":"false",m?"true":"false"),b=$('<div class="popup" id="image-upload" style="z-index:1010; width: 420px;" tabindex="-1"></div>').addClass("async-load").data("load-url",
+h),e,c,d,j=function(a){27===(a.charCode||a.keyCode)&&f(null)},f=function(a){b&&b.fadeOutAndRemove();$("body").unbind("keydown",j);$("body").unbind("paste");void 0!==a&&q(a);c&&c.fadeOutAndRemove();return!1},o=function(a){f();c=$('<div class="popup" id="image-upload" style="z-index:1010;"></div>').addClass("async-load").data("load-url","/render/image-upload/preview");c.appendTo("#header").center().fadeIn("fast");$("body").keydown(j);c.asyncLoad({callback:function(){c.find("#image-preview").attr("src",
+a);n(c);StackExchange.helpers.bindMovablePopups();r()},cache:k})},t=function(a){a=a||window.event;a.preventDefault&&a.preventDefault();e.style.backgroundColor="white";d=a.dataTransfer.files[0];a=new window.FileReader;a.onloadend=s;a.readAsDataURL(d);return!1},s=function(a){o(a.target.result)},u=function(a){a=a.originalEvent||window.event;if(a.clipboardData&&(a=a.clipboardData.items))for(var b=0;b<a.length;b++)if(-1!==a[b].type.indexOf("image")){d=a[b].getAsFile();var c=(window.URL||window.webkitURL).createObjectURL(d);
+o(c)}},v=function(){return!1},w=function(){return!1},x=function(){p(c);if(window.FormData){var a=new window.FormData;a.append("uploadedImage",d);a.append("fkey",StackExchange.options.user.fkey);$.ajax({url:g,data:a,cache:!1,contentType:!1,processData:!1,type:"POST",success:function(a){$("#"+i).contents().find("html").html(a)}})}},y=function(){e=document.getElementById("image-upload");l&&(e.ondrop=t,e.ondragover=w,e.ondragleave=v);m&&$("body").bind("paste",u);b.find(".popup-close").click(function(){f(null)});
+b.find(":radio").change(function(){var a=b.find("#filename-input"),c=b.find("#url-wrapper");a.toggle();c.toggle();$("#upload-message").css({color:"inherit",fontWeight:"inherit"}).hide().text("");c.is(":visible")&&b.find("#url-input").focus()});b.find("form").submit(function(){p(b);var a=b.find(":radio:checked").val(),c=b.find("#filename-input"),e=b.find("#url-wrapper"),d;if("web"==a){var g=c.next();c.detach();d=function(){c.insertBefore(g)}}else{var h=e.next();e.detach();d=function(){e.insertBefore(h)}}this.target=
+i;window.closeDialog=f;window.displayUploadError=function(a){$("#upload-message").css({color:"red",fontWeight:"bold"}).show().text(a);d();d=null};return!0});b.find("#filename-input").focus()},r=function(){c.find(".popup-close").click(function(){f(null)});$("#cancel-upload").click(function(){f(null)});$("#confirm-upload").click(x);window.closeDialog=f;window.displayUploadError=function(a){$("#upload-message").css({color:"red",fontWeight:"bold"}).show().text(a)}},p=function(a){a=a.find("#upload-message");
+a.text(a.data("uploading-text")).addSpinner()},n=function(a){$('<iframe style="display: none;" src="about:blank" />').attr("id",i).attr("name",i).appendTo(a)};b.appendTo("#header").center().fadeIn("fast").promise().done(function(){b.asyncLoad({callback:function(){n(b);StackExchange.helpers.bindMovablePopups();StackExchange.helpers.bindHelpOverlayEvents($("#url-input"));y()},cache:k})});$("body").keydown(j);return!0}}}();

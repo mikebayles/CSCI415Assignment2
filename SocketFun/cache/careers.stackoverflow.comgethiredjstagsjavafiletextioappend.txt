@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Cache-Control: private, max-age=20
+Content-Type: text/javascript; charset=utf-8
+Expires: Wed, 02 Oct 2013 01:50:41 GMT
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, GET, OPTIONS
+Access-Control-Allow-Headers: x-requested-with
+Access-Control-Max-Age: 60
+Date: Wed, 02 Oct 2013 01:50:21 GMT
+Connection: close
+Content-Length: 1594
+
+(function(){var a=$(careers_adselector),b=" <a href=\"http://careers.stackoverflow.com/jobs?a=144\" class=\"top\" target=\"_blank\"></a> <ul class=\"jobs\"> <li> <a href=\"http://careers.stackoverflow.com/jobs/40433/python-developer-small-team-tdd-lacoda?a=NjprM1Mc\" target=\"_blank\" title=\"Python Developer - Small team, TDD at Lacoda. Click to learn more.\"> Python Developer - Small team, TDD<br /> <span class=\"company\">Lacoda</span> <span class=\"location\">Philadelphia, PA</span> </a> </li> <li> <a href=\"http://careers.stackoverflow.com/jobs/40363/interesting-cutting-edge-software-engineer-glimmerglass-optical-cyber?a=Ne4VSfyE\" target=\"_blank\" title=\"Interesting cutting edge Software Engineer position using advanced technology at Glimmerglass Optical Cyber Solutions. Click to learn more.\"> Interesting cutting edge Software Engineer position using…<br /> <span class=\"company\">Glimmerglass Optical Cyber…</span> <span class=\"location\">Hayward, CA</span> </a> </li> <li> <a href=\"http://careers.stackoverflow.com/jobs/10458/knowledge-managment-developer-two-sigma-investments?a=cKNPMjni\" target=\"_blank\" title=\"Knowledge Managment Developer at Two Sigma Investments. Click to learn more.\"> Knowledge Managment Developer<br /> <span class=\"company\">Two Sigma Investments</span> <span class=\"location\">New York, NY</span> </a> </li> </ul> <img alt=\"\" class=\"impression\" src=\"http://careers.stackoverflow.com/ad/i/NjprM1Mc-Ne4VSfyE-cKNPMjni-144\" style=\"display:none\">";a.html(b)})();(function() { $('#careersadsdoublehigh').parent().remove(); })();

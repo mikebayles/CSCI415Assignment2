@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Cache-Control: private, max-age=20
+Content-Type: text/javascript; charset=utf-8
+Expires: Mon, 07 Oct 2013 00:09:34 GMT
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, GET, OPTIONS
+Access-Control-Allow-Headers: x-requested-with
+Access-Control-Max-Age: 60
+Date: Mon, 07 Oct 2013 00:09:14 GMT
+Connection: close
+Content-Length: 1524
+
+(function(){var a=$(careers_adselector),b=" <a href=\"http://careers.stackoverflow.com/jobs?a=144\" class=\"top\" target=\"_blank\"></a> <ul class=\"jobs\"> <li> <a href=\"http://careers.stackoverflow.com/jobs/40055/python-engineer-founding-team-with-repeat-knozen-inc?a=MQPkjodO\" target=\"_blank\" title=\"Python Engineer; Founding Team with repeat successful Entrepreneur at Knozen. Click to learn more.\"> Python Engineer; Founding Team with repeat successful…<br /> <span class=\"company\">Knozen</span> <span class=\"location\">New York, NY</span> </a> </li> <li> <a href=\"http://careers.stackoverflow.com/jobs/40730/senior-systems-engineer-gravitant-inc?a=NFRPlOzm\" target=\"_blank\" title=\"Senior Systems Engineer at Gravitant. Click to learn more.\"> Senior Systems Engineer<br /> <span class=\"company\">Gravitant</span> <span class=\"location\">Austin, TX</span> </a> </li> <li> <a href=\"http://careers.stackoverflow.com/jobs/41123/lead-web-application-developer-topicpulse-ldr-interactive?a=O9xVsvrG\" target=\"_blank\" title=\"Lead Web Application Developer, TopicPulse at LDR Interactive. Click to learn more.\"> Lead Web Application Developer, TopicPulse<br /> <span class=\"company\">LDR Interactive</span> <span class=\"location\">Rocky River, OH / remote /…</span> </a> </li> </ul> <img alt=\"\" class=\"impression\" src=\"http://careers.stackoverflow.com/ad/i/MQPkjodO-O9xVsvrG-NFRPlOzm-144\" style=\"display:none\">";a.html(b)})();(function() { $('#careersadsdoublehigh').parent().remove(); })();

@@ -1,0 +1,14 @@
+HTTP/1.1 302 Found
+Cache-Control: no-cache
+Content-Type: text/html; charset=utf-8
+Date: Thu, 03 Oct 2013 01:55:13 GMT
+Location: http://a.wishabi.com/track.gif?aid=editorials&et=view&module_id=224&mt=widget&rnd=fb5faad68a63f7880ff76345189adcb1&sid=84474613f2f046552aef9c653b702fe2&st=module
+Server: nginx
+Set-Cookie: _editorials_session=BAh7BkkiD3Nlc3Npb25faWQGOgZFRiIlZTEwMjBmNjNkNThjNTQ0MmQ2ODJiNGM2ZGJjZDBlODk%3D--4937765fbfdb19d0662622998fe9b6b43548f86d; path=/; expires=Sun, 03-Oct-2038 01:55:13 GMT; HttpOnly
+Status: 302 Found
+X-Runtime: 0.002687
+X-UA-Compatible: IE=Edge,chrome=1
+Content-Length: 251
+Connection: Close
+
+<html><body>You are being <a href="http://a.wishabi.com/track.gif?aid=editorials&amp;et=view&amp;module_id=224&amp;mt=widget&amp;rnd=fb5faad68a63f7880ff76345189adcb1&amp;sid=84474613f2f046552aef9c653b702fe2&amp;st=module">redirected</a>.</body></html>

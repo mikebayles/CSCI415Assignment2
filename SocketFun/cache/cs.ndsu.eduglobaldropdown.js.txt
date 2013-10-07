@@ -1,0 +1,61 @@
+HTTP/1.1 200 OK
+Date: Thu, 03 Oct 2013 02:05:05 GMT
+Server: Apache/2.2.14 (Ubuntu)
+Last-Modified: Mon, 30 Apr 2012 17:52:24 GMT
+ETag: "41d40-446-4bee91ddfe517"
+Accept-Ranges: bytes
+Content-Length: 1094
+Vary: Accept-Encoding
+Connection: close
+Content-Type: application/javascript
+
+// JavaScript Document by Nick Rigby edited by Derrick Dardano
+//Original
+/*
+startList = function() {
+if (document.all&&document.getElementById) {
+navRoot = document.getElementById("nav2");
+for (i=0; i<navRoot.childNodes.length; i++) {
+node = navRoot.childNodes[i];
+if (node.nodeName=="LI") {
+node.onmouseover=function() {
+this.className+=" over";
+  }
+  node.onmouseout=function() {
+  this.className=this.className.replace(" over", "");
+   }
+   }
+  }
+ }
+}
+*/
+
+startList = function() {
+if (document.all&&document.getElementById) {
+var idArray = new Array();
+idArray[0] = "nav";
+idArray[1] = "nav2";
+
+for(var x=0;x<idArray.length;x++){
+	iterateNav(idArray[x]);
+}
+ }
+}
+
+function iterateNav(id){
+navRoot = document.getElementById(id);
+if(navRoot==null)
+	return;
+for (i=0; i<navRoot.childNodes.length; i++) {
+node = navRoot.childNodes[i];
+if (node.nodeName=="LI") {
+node.onmouseover=function() {
+this.className+=" over";
+  }
+  node.onmouseout=function() {
+  this.className=this.className.replace(" over", "");
+   }
+   }
+  }
+}
+window.onload=startList;

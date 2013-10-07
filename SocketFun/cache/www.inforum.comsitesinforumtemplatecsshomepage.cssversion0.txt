@@ -1,0 +1,217 @@
+HTTP/1.0 200 OK
+Server: Apache/2.2.3 (Red Hat)
+Last-Modified: Thu, 28 Jul 2011 14:54:23 GMT
+ETag: "343d9a-14d1-4a922572705c0"
+Content-Type: text/css
+X-Cache-Lookup: HIT from sc1.fccinteractive.com:80
+Cache-Control: max-age=300
+Date: Thu, 03 Oct 2013 01:49:09 GMT
+Content-Length: 5329
+Connection: close
+
+/* STYLE FOR WIDGET BOX TABS i.e. Calendar Mod and Most Read Mod 
+-------------------------------------------------------------------------------- */
+.tabnav {margin: 3px 0 7px 0;}
+.tabnav ul
+{
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold; 
+	/*text-transform: uppercase;*/
+	height: 26px;
+	padding-left: 10px;
+	background: url(/global_site/template/gfx/tab_bottom.gif) repeat-x bottom;
+}	
+.tabnav li
+{
+	margin: 0px !Important; 
+	padding: 0;
+  	display: inline;
+  	list-style-type: none;
+}
+	
+.tabnav a:link, .tabnav a:visited
+{
+	float: left;
+	background: #f3f3f3;
+	line-height: 14px;
+	padding: 5px;
+	margin-right: 4px;
+	border: 1px solid #ccc;
+	text-decoration: none;
+	color: #666;
+}
+
+.tabnav a:link.active, .tabnav a:visited.active
+{
+	border-bottom: 1px solid #fff;
+	background: #fff;
+	color: #000;
+}
+
+.tabnav a:hover {background: #fff;}
+
+/* WEATHER MODULE
+-------------------------------------------------------------------------------- */
+/*#weatherHomepage
+{
+	margin: 10px 0 0 15px; 
+	width: 300px; 
+	overflow:auto; 
+	background-color: #fff; 
+	padding:6px; 
+	border: 1px solid #7f9dbd;
+}
+
+#weatherHomepage .weatherThumbIMG {border: 1px solid #eee; margin: 5px 10px 0 0; padding: 2px; float:left;}
+
+#weatherHomepageAlert
+{
+	margin: 10px 0 0 15px; 
+	width: 300px; 
+	overflow:auto; 
+	background-color: #fff; 
+	padding:6px; 
+	border: 1px solid #7f9dbd;
+}*/  /* test stuff right now */
+#showWeatherAlerts {background-color:#CC0000; border:1px solid #740104; text-align:center; font-weight:bold; padding:3px 5px;}
+#showWeatherAlerts a {color:#fff; text-decoration:none;}
+.toggleWeatherMap {display:none; margin-top:5px;}
+.toggleWeatherMap a {color:#CC0000;}
+
+/* AP MOD 
+-------------------------------------------------------------------------------- */
+.apnews_header {text-align:center;}
+.apnews_header a.apactive /* current ap section */
+{
+	font-weight: bold; 
+	color: #900; 
+	background-image: url(/sites/duluthnewstribune/template/gfx/aparrow.gif); 
+	background-position:right; 
+	padding-right: 12px;
+	background-repeat:no-repeat;
+}
+#ap_content img {margin: 0 5px 3px 0;} /* article brief thumbnail*/
+#ap_content h3 {font-size: 14px; margin: 3px 0; font-weight: bold;} /* article brief headline */
+
+/* PHOTO GALLERY 
+-------------------------------------------------------------------------------- */
+.photomodule strong /* individual photothumbnails */
+{
+	margin: 2px; /* other browsers */
+	*margin: 1px; /* ie6 */
+	border: 1px solid #000;
+	width: 94px;
+	height: 94px;
+	overflow: hidden;
+	float:left;
+}
+
+.photomodule img {border:none;}
+
+
+/* MARKETPLACE DEALS MOD SCROLLER
+-------------------------------------------------------------------------------- */
+#sidebar .marketplaceslide
+{
+	border-style: solid;
+	border-color: #12406B;
+	border-width: 0 1px 1px 1px;
+	padding: 5px 7px;
+}
+
+#sidebar .marketplaceslide_header 
+{
+	color:#FFF; 
+	background-color: #12406B; 
+	padding: 3px 6px; 
+	font-weight: bold; 
+	margin: 0;
+}
+
+/* VIDEO MOD
+-------------------------------------------------------------------------------- */
+.videomodule
+{ 
+	margin: 8px 0 0 5px;
+	padding: 13px 8px 10px 13px;
+	width: 300px;
+	background-image: url(/sites/inforum/template/gfx/widgetbg.jpg);
+	background-repeat: no-repeat;
+}
+
+.videomodule h2 /* widget title */
+{
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 3px 0;
+	text-transform:uppercase;
+}
+
+.videomodule ul /* list of videos */
+{
+	padding: 0;
+	margin: 0 0 0 5px;
+	list-style-type: none;
+}
+
+.videomodule li /* list of videos */
+{
+	margin: 2px 0 0 0;
+	padding: 2px 0 5px 25px;
+	background: url(/global_site/template/gfx/icons/camera.gif) no-repeat;
+}
+
+#videoContainer {width:300px; height:169px; margin-bottom: 5px;}
+#titleContainer {font-weight: bold;}
+#briefContainer {margin-bottom: 10px;}
+
+/* DOUBLE PHOTOS IN WIDGET BOX
+-------------------------------------------------------------------------------- */
+.doublephoto {margin:0 0 0 18px; width:132px;} /* container for individual photo */
+.doublephotoIMG {border: 1px solid #000; margin-bottom: 3px;} /* for photo itself */
+
+
+/* BREAKING NEWS
+-------------------------------------------------------------------------------- */
+.breakingnews
+{
+	margin: 5px auto 10px;
+	overflow:auto;
+	background: url(/global_site/template/gfx/breakingnews.gif) no-repeat #f0f0f0;
+	padding-left: 210px;
+	width: 785px;
+	font-weight: bold;
+	text-transform:uppercase;
+}
+
+.breakingnews p {margin: 7px 0; padding: 0;} 
+
+/* POLL
+-------------------------------------------------------------------------------- */
+table.pollresults {width: 95%;}
+table.pollresults td {border-bottom:1px solid #ccc; height:15px;}
+
+/* AREAVOICES
+-------------------------------------------------------------------------------- */
+.areavoices
+{	
+	padding: 0 5px;
+	margin-bottom: 2px;
+}
+.areavoices:nth-of-type(odd) 
+{
+	padding: 5px;
+	margin-bottom: 2px;
+	background-color: #f8f8f8;
+	border: 1px solid #eee;
+}
+
+.areavoices img
+{
+	margin: 0 10px 0 0; 
+	border: 1px solid #000; 
+	float: left; 
+}
+.areavoicesDirectory {padding:3px 0; background:#bcc7dd; text-align:center; margin-bottom:10px;}
+.areavoicesDirectory a {color:#000;}

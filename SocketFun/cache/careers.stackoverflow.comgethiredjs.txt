@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Cache-Control: private, max-age=20
+Content-Type: text/javascript; charset=utf-8
+Expires: Wed, 02 Oct 2013 01:50:36 GMT
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, GET, OPTIONS
+Access-Control-Allow-Headers: x-requested-with
+Access-Control-Max-Age: 60
+Date: Wed, 02 Oct 2013 01:50:16 GMT
+Connection: close
+Content-Length: 1477
+
+(function(){var a=$(careers_adselector),b=" <a href=\"http://careers.stackoverflow.com/jobs?a=144\" class=\"top\" target=\"_blank\"></a> <ul class=\"jobs\"> <li> <a href=\"http://careers.stackoverflow.com/jobs/22019/ios-developer-livefront?a=qQZwEC1a\" target=\"_blank\" title=\"iOS Developer at Livefront. Click to learn more.\"> iOS Developer<br /> <span class=\"company\">Livefront</span> <span class=\"location\">Minneapolis, MN / relocation</span> </a> </li> <li> <a href=\"http://careers.stackoverflow.com/jobs/40734/c-sharp-asp-net-enthusiast-ilm-professional-services?a=NG8eGaKA\" target=\"_blank\" title=\"C# ASP.NET enthusiast at ILM Professional Services. Click to learn more.\"> C# ASP.NET enthusiast<br /> <span class=\"company\">ILM Professional Services</span> <span class=\"location\">Minneapolis, MN / relocation</span> </a> </li> <li> <a href=\"http://careers.stackoverflow.com/jobs/39481/senior-software-engineer-williams-interactive-phantom?a=M9nZ85VK\" target=\"_blank\" title=\"Senior Software Engineer at Williams Interactive (Phantom EFX). Click to learn more.\"> Senior Software Engineer<br /> <span class=\"company\">Williams Interactive (Phantom…</span> <span class=\"location\">Cedar Falls, IA / relocation</span> </a> </li> </ul> <img alt=\"\" class=\"impression\" src=\"http://careers.stackoverflow.com/ad/i/qQZwEC1a-NG8eGaKA-M9nZ85VK-144\" style=\"display:none\">";a.html(b)})();(function() { $('#careersadsdoublehigh').parent().remove(); })();

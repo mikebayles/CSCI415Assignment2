@@ -1,0 +1,76 @@
+HTTP/1.1 200 OK
+Cache-Control: no-store, no-cache, max-age=0, must-revalidate
+Content-Type: text/javascript; charset=UTF-8
+Date: Thu, 03 Oct 2013 01:49:10 GMT
+Pragma: no-cache
+Server: nginx/1.1.19
+X-Powered-By: PHP/5.3.10-1ubuntu3.7
+Content-Length: 2398
+Connection: Close
+
+if (SpinGo == null) {
+	var SpinGo = {};
+}
+SpinGo.widget = {};
+SpinGo.widget.calID = 520;
+SpinGo.widget.calendarUrl  = "http://www.inforum.com/pages/calendar/";
+SpinGo.widget.css = [];
+SpinGo.widget.themes = {"Default":{"css":"theme27.css?c=2","style":"basic-web"},"Modern Web":{"css":"theme29.css?c=2","style":"modern-web"},"Classic Print":{"css":"theme30.css?c=2","style":"classic-print"},"Modern Print":{"css":"theme31.css?c=2","style":"modern-print"},"Basic Web":{"css":"theme32.css?c=2","style":"basic-web"}};
+SpinGo.domReadyCallbacks = [];
+SpinGo.domain = "spingo.com";
+SpinGo.secure = false;
+
+SpinGo.EventsWidget = function(options) {
+	if (SpinGo.widget.themes[options.theme] == null) {
+		options.theme = "Default";
+		options.styleType = "basic-web";
+	} else {
+		options.styleType = SpinGo.widget.themes[options.theme].style
+	}
+	this.options = options;
+	
+	if (SpinGo.MainEventsWidget) {
+		this.widget = new SpinGo.MainEventsWidget(this.options);
+	} else {
+		this.activate = function() {
+			this.widget = new SpinGo.MainEventsWidget(this.options);
+		}
+		SpinGo.domReadyCallbacks.push({
+			func: this.activate,
+			scope: this
+		});
+	}
+	
+
+	if (SpinGo.widget.css.indexOf(options.theme) <= -1) {
+		SpinGo.widget.css.push(options.theme);
+		var head = document.getElementsByTagName("head")[0];
+		var css = document.createElement('link');
+		css.setAttribute("type", "text/css");
+		css.setAttribute("rel", "stylesheet");
+		css.setAttribute("id", 'sgcss_'+options.theme.replace(' ',''));
+		css.setAttribute("href", "http"+(SpinGo.secure ? "s" : "")+"://widget."+SpinGo.domain+"/css/events/themes/"+SpinGo.widget.themes[options.theme].css);
+		head.appendChild(css);
+	} else {
+		var el = document.getElementById('sgcss_'+options.theme.replace(' ',''));
+		var parent = el.parentNode;
+		parent.removeChild(el);
+		parent.appendChild(el);
+	}
+};
+
+(function() {
+	var head = document.getElementsByTagName("head")[0];
+	var body = document.getElementsByTagName("body")[0];
+	var script = document.createElement('script');
+	script.setAttribute("type", "text/javascript");
+	script.setAttribute("src", "http"+(SpinGo.secure ? "s" : "")+"://widget."+SpinGo.domain+"/js/events/spingo.widget.js?20130925143826");
+	body.appendChild(script);
+	
+	SpinGo.widget.css.indexOf = function(obj, start) {
+		for (var i = (start || 0), j = this.length; i < j; i++) {
+		   if (this[i] === obj) { return i; }
+		}
+		return -1;
+	}
+})();

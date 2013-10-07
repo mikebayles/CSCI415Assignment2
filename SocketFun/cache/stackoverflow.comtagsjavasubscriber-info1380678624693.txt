@@ -1,0 +1,25 @@
+HTTP/1.1 200 OK
+Cache-Control: private
+Content-Type: text/html; charset=utf-8
+X-Frame-Options: SAMEORIGIN
+Date: Wed, 02 Oct 2013 01:50:24 GMT
+Connection: close
+Content-Length: 881
+
+<div>
+    <div class="tm-heading">
+        <span class="tm-sub-info">
+                        <span title="44625">44.6k</span> followers            <span class="tm-sub-links" style="float:right;">
+                <a href="/feeds/tag/java" title="add this tag to your rss reader">rss</a>
+            </span>
+        </span>
+    </div>
+            <div class="tm-description">Java (not to be confused with JavaScript) is a class-based, object-oriented, strongly typed, reflective language and runtime environment (JRE). Java programs are compiled to bytecode and run in a virtual machine (JVM) enabling a &quot;write once, run anywhere&quot; (WORA) methodology.</div>
+</div>
+<span class="tm-links">
+    <a href="/questions/tagged/java?sort=frequent">frequent</a> 
+    <a href="/tags/java/info">info</a> 
+    <a href="/tags/java/topusers">top users</a>
+    </span>
+
+

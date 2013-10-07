@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Type: application/x-javascript
+Date: Thu, 03 Oct 2013 01:50:07 GMT
+Expires: -1
+NDN-Server: NDNPS-EA06
+NDN-Services-Ver: 130305
+Pragma: no-cache
+Server: Microsoft-IIS/7.5
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Content-Length: 1122
+Connection: Close
+
+jQuery16402228036948876832_1380765007347({"Assets":[{"AssetLocation":"http:\/\/content.newsinc.com\/flv\/1466\/25219275\/6843519.flv","AssetType":"src","Duration":76.79},{"AssetLocation":"http:\/\/content.newsinc.com\/jpg\/1466\/25219275\/6843520.jpg","AssetType":"stillFrame","Duration":null},{"AssetLocation":"http:\/\/content.newsinc.com\/jpg\/1466\/25219275\/6843522.jpg","AssetType":"StillFrameXL","Duration":null},{"AssetLocation":"http:\/\/content.newsinc.com\/jpg\/1466\/25219275\/6843521.jpg","AssetType":"thumbnail","Duration":null}],"ContentID":25219275,"ContentOrder":0,"ContentPartnerID":91051,"Description":"A Labrador befriended a 3-year-old boy with Down syndrome and the child's mother caught their touching interaction on camera.","Keyword":null,"Name":"Sweet Video: Dog Befriends Boy With Down Syndrome","PLaylistID":0,"ProducerCategory":"news","ProducerLogo":"http:\/\/assets.newsinc.com\/KIAH_75x27.png","ProducerName":"NewsFix","ProducerNameAlt":"newsfix","PubDate":"\/Date(1380724656000-0400)\/","SEOFriendlyTitle":"Sweet-Video-Dog-Befriends-Boy-With-Down-Syndrome-25219275","VideoGroupName":null});

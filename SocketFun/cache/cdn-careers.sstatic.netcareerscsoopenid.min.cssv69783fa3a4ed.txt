@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Server: cloudflare-nginx
+Date: Wed, 02 Oct 2013 15:50:41 GMT
+Content-Type: text/css
+Connection: close
+Set-Cookie: __cfduid=da4ac77948a0036fb1cbc252be6bb1d161380729041604; expires=Mon, 23-Dec-2019 23:50:00 GMT; path=/; domain=.sstatic.net
+Cache-Control: public, max-age=604800
+Last-Modified: Mon, 30 Sep 2013 15:03:01 GMT
+ETag: "10eefa27eebdce1:0"
+Vary: Accept-Encoding
+CF-Cache-Status: HIT
+Expires: Wed, 09 Oct 2013 15:50:41 GMT
+CF-RAY: b728cbe08ad0167
+
+#openid_choice{margin-top:10px}#openid_input_area{padding-top:10px;margin-bottom:10px;clear:both;display:none}#openid_username{margin-right:5px}#openid_btns,#openid_btns br{margin-left:30px;clear:both}#openid_btns_large{min-height:50px;float:left}a.openid_large_btn,a.openid_small_btn{border:2px solid #DDD;border-right:2px solid #ccc;border-bottom:2px solid #ccc;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;-moz-box-shadow:2px 2px 4px #ddd;-webkit-box-shadow:2px 2px 4px #ddd;box-shadow:2px 2px 4px #ddd;margin:0 6px 6px 0;float:left;position:relative;display:block;background-image:url('../Img/openid-logos.png');background-color:#fff;background-repeat:no-repeat}a.openid_large_btn{width:100px;height:60px}a.openid_large_btn:hover,a.openid_small_btn:hover,a.openid_large_btn.hover,a.openid_small_btn.hover{border-color:#999;opacity:1}#openid_btns_small{clear:both}.openid_small_btn{width:24px;height:24px}.openid_small_btn.highlight,.openid_large_btn.highlight{border-color:#fb8008}a.openid_large_btn{outline:0;-moz-outline-style:none;outline-style:none}#openid_more{clear:both;display:none}.depress{top:1px;left:1px}

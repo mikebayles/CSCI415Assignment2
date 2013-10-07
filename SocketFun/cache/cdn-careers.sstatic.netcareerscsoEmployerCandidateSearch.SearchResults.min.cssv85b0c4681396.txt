@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Server: cloudflare-nginx
+Date: Wed, 02 Oct 2013 15:50:39 GMT
+Content-Type: text/css
+Connection: close
+Set-Cookie: __cfduid=dc55dc0ade8ca42893637fc17e9c317ac1380729039695; expires=Mon, 23-Dec-2019 23:50:00 GMT; path=/; domain=.sstatic.net
+Cache-Control: public, max-age=604800
+Last-Modified: Mon, 30 Sep 2013 15:03:00 GMT
+ETag: "16dae527eebdce1:0"
+Vary: Accept-Encoding
+CF-Cache-Status: HIT
+Expires: Wed, 09 Oct 2013 15:50:39 GMT
+CF-RAY: b728cb21b2c0167
+
+.candidate-search .search-results .search-result{font-size:12px;border-bottom:1px solid #d3d3d3;padding:5px;overflow:hidden}.candidate-search .search-results .search-result>.gravatar{float:left;margin-right:5px}.candidate-search .search-results .search-result>.icons{float:right}.candidate-search .search-results .search-result>.icons span{display:block;width:16px;height:16px;float:left;margin-left:3px}.candidate-search .search-results .search-result>.icons .saved.messaged{background:transparent url("../../Img/icon-envelope.png") no-repeat 0 center}.candidate-search .search-results .search-result>.icons .saved.on{background:transparent url("../../Img/green-check.png") no-repeat 0 center}.candidate-search .search-results .search-result>.icons .saved.dismissed{background:transparent url("../../Img/cv-remove.png") no-repeat 0 center}.candidate-search .search-results .search-result>.name{line-height:16px;font-size:13px}.candidate-search .search-results .search-result>.name>a{font-weight:700;white-space:nowrap;overflow:hidden}.candidate-search .search-results .search-result>.location{line-height:16px;font-style:italic;color:#777;white-space:nowrap}.candidate-search .search-results .search-result>.tags{font-size:11px}.candidate-search .search-results .search-result>.tags>.post-tag{padding:3px 4px 0 4px;margin:3px 2px 0 0}.candidate-search .search-results .search-result:hover{cursor:pointer;background-color:#f3f3f3}.candidate-search .search-results .search-result.active{background-color:#FFF3E8;border-right:2px solid #FEB876;padding-right:3px}.candidate-search .search-results .pagination{text-align:center;font-size:10px}.candidate-search .search-results .pagination>a{min-width:10px;margin:0;padding:0 2px}.candidate-search .search-results .pagination>a.selected,.candidate-search .search-results .pagination>a:hover{background-color:#5ea6ea}.ats-bar{background-color:#edf7ff;clear:both;padding:10px;margin-bottom:20px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}.ats-bar .controls{float:right;text-align:right;padding-top:6px}.ats-bar form{display:inline}

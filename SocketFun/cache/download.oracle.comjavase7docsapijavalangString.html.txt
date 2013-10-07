@@ -1,0 +1,7 @@
+HTTP/1.0 302 Moved Temporarily
+Server: AkamaiGHost
+Content-Length: 0
+Location: http://docs.oracle.com/javase/7/docs/api/java/lang/String.html
+Date: Thu, 03 Oct 2013 01:54:56 GMT
+Connection: close
+

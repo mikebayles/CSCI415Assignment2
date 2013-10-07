@@ -8,7 +8,7 @@ public class ProxyServer
 	public static void main(String[] args) throws Exception 
 	{
         System.out.println("The proxy server is running.");        
-        ServerSocket listener = new ServerSocket(9898);
+        ServerSocket listener = new ServerSocket(9898);        
         try 
         {
             while (true) 

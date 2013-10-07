@@ -1,0 +1,12 @@
+HTTP/1.0 200 OK
+Server: nginx/1.0.15
+Content-Length: 22
+Content-Type: text/javascript
+Expires: Thu, 03 Oct 2013 01:51:54 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Thu, 03 Oct 2013 01:51:54 GMT
+Connection: close
+
+
+  var userDetails={};

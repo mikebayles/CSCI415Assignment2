@@ -1,0 +1,12 @@
+HTTP/1.0 200 OK
+Connection: close
+Content-Type: application/x-javascript
+Set-Cookie: mc=524ccd4f-00311-8ea10-abff8; expires=Sat, 04-Apr-2015 01:50:07 GMT; path=/; domain=.quantserve.com
+P3P: CP="NOI DSP COR NID CURa ADMa DEVa PSAo PSDo OUR SAMa IND COM NAV"
+Cache-Control: private, no-transform, must-revalidate, max-age=600
+Expires: Thu, 03 Oct 2013 02:00:07 GMT
+Content-Length: 39
+Date: Thu, 03 Oct 2013 01:50:07 GMT
+Server: QS
+
+qc_results({"segments":[{"id":"D"}]});

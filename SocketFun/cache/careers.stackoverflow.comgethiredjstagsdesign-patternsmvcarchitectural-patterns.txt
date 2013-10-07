@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Cache-Control: private, max-age=20
+Content-Type: text/javascript; charset=utf-8
+Expires: Wed, 02 Oct 2013 01:50:18 GMT
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, GET, OPTIONS
+Access-Control-Allow-Headers: x-requested-with
+Access-Control-Max-Age: 60
+Date: Wed, 02 Oct 2013 01:49:58 GMT
+Connection: close
+Content-Length: 1451
+
+(function(){var a=$(careers_adselector),b=" <a href=\"http://careers.stackoverflow.com/jobs?a=144\" class=\"top\" target=\"_blank\"></a> <ul class=\"jobs\"> <li> <a href=\"http://careers.stackoverflow.com/jobs/40001/senior-web-full-stack-engineer-roblox?a=MMKao9Ik\" target=\"_blank\" title=\"Senior Web Full Stack Engineer at ROBLOX. Click to learn more.\"> Senior Web Full Stack Engineer<br /> <span class=\"company\">ROBLOX</span> <span class=\"location\">San Mateo, CA</span> </a> </li> <li> <a href=\"http://careers.stackoverflow.com/jobs/24620/we-javascript-ioffice?a=u1HKhFK0\" target=\"_blank\" title=\"We â?¤ JavaScript at iOffice. Click to learn more.\"> We â?¤ JavaScript<br /> <span class=\"company\">iOffice</span> <span class=\"location\">Houston, TX / relocation</span> </a> </li> <li> <a href=\"http://careers.stackoverflow.com/jobs/38548/cdd-dÃ©veloppeur-logiciel-libre-python-perl-teclib?a=L0OLN852\" target=\"_blank\" title=\"CDD - DÃ©veloppeur logiciel libre - Python/Perl PHP : 2 postes Ã  pourvoir at TECLIB&#39;. Click to learn more.\"> CDD - D&#233;veloppeur logiciel libre - Python/Perl PHP : 2â€¦<br /> <span class=\"company\">TECLIB&#39;</span> <span class=\"location\">Paris, France</span> </a> </li> </ul> <img alt=\"\" class=\"impression\" src=\"http://careers.stackoverflow.com/ad/i/MMKao9Ik-L0OLN852-u1HKhFK0-144\" style=\"display:none\">";a.html(b)})();(function() { $('#careersadsdoublehigh').parent().remove(); })();

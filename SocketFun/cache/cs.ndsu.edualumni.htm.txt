@@ -1,0 +1,150 @@
+HTTP/1.1 200 OK
+Date: Thu, 03 Oct 2013 02:10:27 GMT
+Server: Apache/2.2.14 (Ubuntu)
+Accept-Ranges: bytes
+Vary: Accept-Encoding
+Connection: close
+Content-Type: text/html
+
+<!doctype html public "-//w3c//dtd xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="Keywords" content="North Dakota State University Computer Science" />
+<title>NDSU Computer Science</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="global/drop_down.js" language="javascript" type="text/javascript"></script>
+<link href="/global/simple.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+	<!--
+	@import url(global/default.css); 
+ 
+    -->
+</style>
+</head>
+
+
+<body>
+<a class="skiplink" href="#startcontent">Skip to Content</a> <a name=top></a> 
+
+<!-- Start Top Banner -->
+<div class="banner"> 
+<a href="http://www.ndsu.edu/" title="NDSU Home Page"><img src="images/logo_ndsu.gif" alt="bison head" border="0"/></a> 
+</div>
+    
+<hr />
+<!--End Top Banner -->
+<table  width="100%" border="0" cellspacing="0" cellpadding="0" summary="">
+  <tr> 
+   <!--Begin Left Navigation -->
+    <td class="Column1" valign="top">
+
+   <div class="CSSearch">
+<form method="get" action="http://www.ndsu.edu/search/index.php" name="searchform">
+   <label>Search:</label>
+      <input name="term" value="Search NDSU" size="16" id="words" type="text" onclick="clearFunction(this);" onkeypress="clearFunction(this);" />
+   <input name="imageField" src="http://www.ndsu.edu/images/buttons/b.search-loupesmall.gif" alt="Search" type="image" align="top" />
+</form>
+
+         <a href="http://text-only.ndsu.nodak.edu:8080/tt/referrer">Text only version</a>
+		  <div class=CSSub><a href="/index.htm">CS Home</a></div>
+		<div class=menu><a href="/aboutus.htm">About Us</a></div>
+	
+		<div class=menu><a href="/classschedules.htm">Class Schedules</a></div>
+		
+		
+		<div class=menu><a href="/degrees.htm">Degree Programs</a></div>
+		<div class=submenu><a href="/bs.htm" >B.S.</a></div>
+		<div class=submenu><a href="/ba.htm">B.A.</a></div>
+		<div class=submenu><a href="/gradcert.htm">Graduate Certificate, Soft. Eng.</a></div>
+		<div class=submenu><a href="/ms.htm" >M.S. -- Comp. Sci.</a></div>
+		<div class=submenu><a href="/mse.htm">M.S. -- Soft. Eng.</a></div>
+        <div class=submenu><a href="/msedistance.htm">M.S.E. -- Soft. Eng.</a></div>
+		<div class=submenu><a href="/phdcs.htm">Ph.D. -- Comp. Sci.</a></div>
+		<div class=submenu><a href="/phdse.htm">Ph.D. -- Soft. Eng.</a></div>
+		<div class=menu><a href="/forms.htm">Forms</a></div>
+
+<div class=menu><a href="/msdnaa.htm">Microsoft DreamSpark Program</a></div>
+<div class=menu><a href="/policies.htm">Policies & Information</a></div>
+<div class=submenu><a href="/assessment.htm">Assessment</a></div>
+		<div class=submenu><a href="/positions.htm" >CS Department Positions</a></div>
+		<div class=submenu><a href="/news.htm">News</a></div>
+		<div class=submenu><a href="/newsletters.htm"> Newsletters</a></div>
+		<div class=submenu><a href="/annualreports.htm"> Annual Reports </a> </div>
+        <div class=submenu><a href="/bioinformatics/index.html"> Bioinformatics </a> </div>
+		
+		
+	</div>
+
+
+   </td>
+	<!--End Left Navigation -->
+    <td width="100%" valign="top" class="Column2">
+       &nbsp;&nbsp;&nbsp;&nbsp;<img src="images/cs.png" alt="banner" width="350" height="32" />
+	   
+<!--Begin Top Navigation --><table summary="top navigation" width="100%">
+<tr class="tabbackgroundsidecolor">
+          <td  class="topnav" width="20%"><a href="undergrads.htm">Undergraduates</a></td>
+          <td class="topnav" width="20%"><a href="grads.htm">Graduates</a></td>
+		  <td  class="topnav" width="20%"><a href="faculty.htm">Faculty</a></td>
+		  <td  class="topnav" width="20%"><a href="alumni.htm">Alumni</a></td><td  class="topnav" width="20%"><a href="friend.htm">Donations</a></td>
+
+</tr>
+  		  </table>
+
+
+<!--Begin Breadcrumb -->
+
+
+	   <div id="breadcrumb">
+	   <a href="http://www.ndsu.edu/">NDSU</a> &raquo;<a href="index.htm"> Computer Science Department</a>  &raquo;Alumni
+      </div>
+       <!--End Breadcrumb -->
+
+<!--Begin Content -->
+<a class="skiplink" href="#startcontent">Skip to Content</a> 
+      <div class="content">
+                  
+            <h2>&nbsp;</h2>
+            <h2>NDSU CS Alumni Hall of Fame</h2>
+            The CS faculty consider all our alumni to be members of the CS Hall of Fame. All have survived, and in many cases excelled, in what we consider to be the most stringent computer science program in the region. The gasps of relief when receiving their diplomas attest to these statements. Anyone not understanding our calling this a &quot;Hall of Fame&quot; is probably not an NDSU CS degree holder.<br />
+            <br />
+            <a href="scholarships.htm">Alumni giving to CS Scholarship Fund</a> <br />
+            <a href="alumniform.htm">Alumni feedback opportunity</a><br />
+  <br />
+          We know there are still numerous errors in this list and hope that by publishing this list we will arouse your interest in correcting the entries you know are wrong, and help you to contact old friends. We do not intend to publish street addresses nor phone numbers here. We do hope to get e-mail addresses, company name, and Web links from as many as possible. You may omit your company name if you like, but when students look for internships or employment they often ask us for contacts at a given company. We will also provide a Web link for any company employing our alumni if we have the link. <br />
+  <br />
+  <h3>Alumni Hall of Fame List - by year of graduation (first NDSU degree)</h3>
+  <ul>
+    <li><a href="alumni4179.htm">1941-1979</a> </li>
+    <li><a href="alumni8089.htm"> 1980-1989</a></li>
+    <li><a href="alumni9099.htm"> 1990-1999</a></li>
+    <li><a href="alumni0010.htm"> 2000-2010</a></li>
+  </ul>
+      </div>
+      
+
+
+
+  </td></tr>
+</table><div id="footerlinks" align="center">
+	   <a href="http://www.ndsu.edu/">NDSU Home &nbsp;&nbsp;  </a>  |  &nbsp;&nbsp;
+<a href="http://www.ndsu.edu/phonebook">NDSU Phonebook </a> &nbsp;&nbsp; | &nbsp;&nbsp;
+<a href=IACCMap.pdf>IACC Map &nbsp;&nbsp;  </a>  |  &nbsp;&nbsp;
+
+<a href="http://www.ndsu.edu/ndsu/maps/2006.CampusMap.pdf">Campus Map</a> | &nbsp;&nbsp;<a href ="http://www.cityoffargo.com">City of Fargo</a>
+	   </div>    
+<!--Begin Footer -->
+<div class="footer" align="center">Updated onSeptember, 2007<!-- #EndDate --> &nbsp;&nbsp;I &nbsp;&nbsp;Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;&#058;webmaster@cs.ndsu.edu">Webmaster</a></div>
+ 
+<div class="footer" align="center">
+<a href="http://www.adobe.com/products/acrobat/readstep2.html" target="_blank">Please download the latest version of Adobe Reader :: Free Download</a></div>
+<div class="footer" align="center">
+This site is best viewed in Internet Explorer 6.0 or Netscape 7.0 
+</div>
+ 
+<!--End Footer -->
+
+
+
+</body>
+</html>
