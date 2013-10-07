@@ -1,9 +1,0 @@
-HTTP/1.1 200 OK
-Cache-Control: private
-Content-Type: text/html; charset=utf-8
-X-Frame-Options: SAMEORIGIN
-Date: Mon, 07 Oct 2013 00:09:21 GMT
-Connection: close
-Content-Length: 134
-
-<a href="http://stackexchange.com/leagues/1/year/stackoverflow/2013-01-01/2170192#2170192" target="_blank">top <b>4%</b> this year</a>

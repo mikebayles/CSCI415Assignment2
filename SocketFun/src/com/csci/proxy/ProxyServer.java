@@ -1,5 +1,6 @@
 package com.csci.proxy;
 
+import java.io.File;
 import java.net.ServerSocket;
 
 
@@ -11,6 +12,7 @@ public class ProxyServer
         ServerSocket listener = new ServerSocket(9898);        
         try 
         {
+        	makeCacheFolder();
             while (true) 
             {
                 new HTTPProxy(listener.accept()).start();
@@ -21,5 +23,14 @@ public class ProxyServer
         {
             listener.close();
         }
+	}
+	
+	public static void makeCacheFolder()
+	{
+		File cacheFolder = new File("cache");
+		if(cacheFolder.exists())
+			return;
+		
+		cacheFolder.mkdir();
 	}
 }

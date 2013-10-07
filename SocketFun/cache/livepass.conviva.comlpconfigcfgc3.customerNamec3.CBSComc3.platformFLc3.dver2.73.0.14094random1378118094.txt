@@ -2,15 +2,15 @@ HTTP/1.0 200 OK
 Content-Type: text/xml
 Status: 200
 Content-Length: 16067
-Expires: Mon, 07 Oct 2013 00:09:27 GMT
+Expires: Mon, 07 Oct 2013 00:24:27 GMT
 Cache-Control: max-age=10
 Connection: close
-Date: Mon, 07 Oct 2013 00:09:17 GMT
+Date: Mon, 07 Oct 2013 00:24:17 GMT
 Server: lighttpd/1.4.31
-Set-Cookie: BIGipServerpool_livepass.conviva.com_http=1057095690.37663.0000; path=/
+Set-Cookie: BIGipServerpool_livepass.conviva.com_http=2617376778.37663.0000; path=/
 
 <?xml version="1.0"?>
-<livePassConfig ccsWallTimeSec="32410026" serviceConfigVersion="347389" >
+<livePassConfig ccsWallTimeSec="24963708" serviceConfigVersion="347389" >
     <common>
         <gateways>
             <gateway protocolVersion="0" loadState="available">https://gw001.lphbs.com</gateway>

@@ -1,7 +1,0 @@
-HTTP/1.0 302 Moved Temporarily
-Server: AkamaiGHost
-Content-Length: 0
-Location: http://docs.oracle.com/javase/7/docs/api/java/io/Writer.html
-Date: Wed, 02 Oct 2013 01:50:32 GMT
-Connection: close
-

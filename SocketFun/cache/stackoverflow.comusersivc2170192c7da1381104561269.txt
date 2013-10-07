@@ -1,6 +1,0 @@
-HTTP/1.1 204 No Content
-Cache-Control: private
-X-Frame-Options: SAMEORIGIN
-Date: Mon, 07 Oct 2013 00:09:21 GMT
-Connection: close
-

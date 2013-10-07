@@ -1,7 +1,0 @@
-HTTP/1.0 302 Moved Temporarily
-Server: AkamaiGHost
-Content-Length: 0
-Location: http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html
-Date: Thu, 03 Oct 2013 01:54:49 GMT
-Connection: close
-

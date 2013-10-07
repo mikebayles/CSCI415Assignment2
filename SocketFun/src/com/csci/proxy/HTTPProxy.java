@@ -96,13 +96,14 @@ public class HTTPProxy extends Thread
 		        	{				        		
 		        		int count;
 		        		//create some temporary storage
-		        		byte[] buffer = new byte[4096];
+		        		byte[] buffer = new byte[8192];
 		        		//transfer bytes from input to browser
 		        		while ((count = serverInput.read(buffer)) > 0)
 	    				{
 		        			
 	    				    clientOutput.write(buffer, 0, count);
-	    				}		        				        
+	    				}	
+		        		
 		        	}
 		        	server.close();
 		        	clientSocket.close();
@@ -121,9 +122,7 @@ public class HTTPProxy extends Thread
 	        		{
 	        			clientOut.println(currentLine); 
 	        		}
-	        		
-	        		logRequest(clientSocket.getInetAddress().getHostAddress(),url.toString(),0);
-	        		
+	        			        			        		
 	        		reader.close();	        	
 		        	clientSocket.close();	        		
 	        	}

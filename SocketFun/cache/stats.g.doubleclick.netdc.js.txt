@@ -1,12 +1,12 @@
 HTTP/1.0 200 OK
-Date: Sun, 06 Oct 2013 19:21:12 GMT
-Expires: Mon, 07 Oct 2013 07:21:12 GMT
+Date: Sun, 06 Oct 2013 19:20:57 GMT
+Expires: Mon, 07 Oct 2013 07:20:57 GMT
 Last-Modified: Thu, 26 Sep 2013 19:47:03 GMT
 X-Content-Type-Options: nosniff
 Content-Type: text/javascript
 Vary: Accept-Encoding
 Server: Golfe2
-Age: 17257
+Age: 18284
 Cache-Control: public, max-age=43200
 Alternate-Protocol: 80:quic
 
